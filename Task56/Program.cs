@@ -59,4 +59,4 @@ for (int i = 1; i < array2D.GetLength(0); i++)
         minSumRow = i;
     }
 }
-Console.WriteLine($"\n{minSumRow + 1} - строкa с наименьшей суммой элементов ");
+Console.WriteLine($"{minSumRow + 1} - строкa с наименьшей суммой элементов ");
