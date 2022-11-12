@@ -5,7 +5,7 @@
 // 66(0,0,0) 27(0,0,1) 25(0,1,0) 90(0,1,1)
 // 34(1,0,0) 26(1,0,1) 41(1,1,0) 55(1,1,1)
 
-int[,,] CreateMatrixRndInt(int rows, int columns, int depth, int num)
+int[,,] CreateMatrixRndInt(int rows, int columns, int depth, int min, int max)
 {
     var matrix = new int[rows, columns, depth];
     var rnd = new Random();
@@ -15,9 +15,8 @@ int[,,] CreateMatrixRndInt(int rows, int columns, int depth, int num)
         {
             for (int z = 0; z < matrix.GetLength(2); z++)
             {
-                matrix[i, j, z] = rnd.Next(num + 1);
+                matrix[i, j, z] = rnd.Next(min, max);
             }
-            
         }
     }
     return matrix;
@@ -32,13 +31,13 @@ void PrintMatrix(int[,,] matrix)
         {
             for (int z = 0; z < matrix.GetLength(2); z++)
             {
-            if (i < matrix.GetLength(1) - 1) Console.Write($"{matrix[i, j, z], 3}, ");
-            else Console.Write($"{matrix[i, j, z ], 3}. ");
+                if (i < matrix.GetLength(1) - 1) Console.Write($"{matrix[i, j, z],3}, ");
+                else Console.Write($"{matrix[i, j, z],3}, ");
             }
         }
         Console.WriteLine("|");
     }
 }
 
-int[,,] array3D = CreateMatrixRndInt(2, 2, 2, 10);
+int[,,] array3D = CreateMatrixRndInt(2, 2, 2, 1, 10);
 PrintMatrix(array3D);

@@ -27,12 +27,36 @@ void PrintMatrix(int[,] matrix)
         Console.Write("|");
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            if (i < matrix.GetLength(1) - 1) Console.Write($"{matrix[i, j], 3}, ");
-            else Console.Write($"{matrix[i, j], 3}, ");
+            if (i < matrix.GetLength(1) - 1) Console.Write($"{matrix[i, j],3}, ");
+            else Console.Write($"{matrix[i, j],3}, ");
         }
         Console.WriteLine("|");
     }
 }
 
+
+int SumRows(int[,] matrix, int i)
+{
+    int sumRows = matrix[i, 0];
+
+    for (int j = 1; j < matrix.GetLength(1); j++)
+    {
+        sumRows += matrix[i, j];
+    }
+    return sumRows;
+}
 int[,] array2D = CreateMatrixRndInt(4, 4, 1, 10);
+int sumRows = SumRows(array2D, 0);
 PrintMatrix(array2D);
+
+int minSumRow = 0;
+for (int i = 1; i < array2D.GetLength(0); i++)
+{
+    int tempMinRow = SumRows(array2D, i);
+    if (sumRows > tempMinRow)
+    {
+        sumRows = tempMinRow;
+        minSumRow = i;
+    }
+}
+Console.WriteLine($"\n{minSumRow + 1} - строкa с наименьшей суммой элементов ");
