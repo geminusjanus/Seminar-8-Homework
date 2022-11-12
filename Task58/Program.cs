@@ -64,7 +64,7 @@ void PrintSecondMatrix(int[,] matrix1)
 
 int[,] MultiplyMatrix(int[,] matrix, int[,] matrix2)
 {
-    if (matrix.GetLength(1) != matrix2.GetLength(0)) throw new Exception("Матрицы нельзя перемножить");
+    if (matrix.GetLength(1) != matrix2.GetLength(0)) Console.WriteLine("Матрицы нельзя перемножить");
     int[,] r = new int[matrix.GetLength(0), matrix2.GetLength(1)];
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
@@ -96,5 +96,5 @@ Console.WriteLine();
 int[,] array12D = CreateSecondMatrixRndInt(2, 2, 1, 10);
 PrintSecondMatrix(array12D);
 Console.WriteLine();
-int [,] multiplyMatrix = MultiplyMatrix(array2D, array12D);
+int[,] multiplyMatrix = MultiplyMatrix(array2D, array12D);
 PrintMultiplyMatrix(multiplyMatrix);
