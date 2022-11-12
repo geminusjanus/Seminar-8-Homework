@@ -30,12 +30,51 @@ void PrintMatrix(int[,] matrix)
         Console.Write("|");
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            if (i < matrix.GetLength(1) - 1) Console.Write($"{matrix[i, j], 3}, ");
-            else Console.Write($"{matrix[i, j], 3}, ");
+            if (i < matrix.GetLength(1) - 1) Console.Write($"{matrix[i, j],3}, ");
+            else Console.Write($"{matrix[i, j],3}, ");
         }
         Console.WriteLine("|");
     }
 }
 
+
 int[,] array2D = CreateMatrixRndInt(4, 4, 1, 10);
 PrintMatrix(array2D);
+
+int [,] OtherMatrixRows(int[,] array)
+{
+  for (int i = 0; i < array.GetLength(0); i++)
+  {
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+      for (int k = 0; k < array.GetLength(1) - 1; k++)
+      {
+        if (array[i, k] < array[i, k + 1])
+        {
+          int temp = array[i, k + 1];
+          array[i, k + 1] = array[i, k];
+          array[i, k] = temp;
+        }
+      }
+    }
+  }
+  return array;
+}
+
+void PrintSortMatrixLines(int[,] matrix)
+{
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        Console.Write("|");
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            if (i < matrix.GetLength(1) - 1) Console.Write($"{matrix[i, j],3}, ");
+            else Console.Write($"{matrix[i, j],3}, ");
+        }
+        Console.WriteLine("|");
+    }
+}
+
+Console.WriteLine();
+int [,] newArray = OtherMatrixRows(array2D);
+PrintSortMatrixLines(newArray);
