@@ -41,24 +41,24 @@ void PrintMatrix(int[,] matrix)
 int[,] array2D = CreateMatrixRndInt(4, 4, 1, 10);
 PrintMatrix(array2D);
 
-int [,] OtherMatrixRows(int[,] array)
+int [,] OtherMatrixRows(int[,] matrix1)
 {
-  for (int i = 0; i < array.GetLength(0); i++)
+  for (int i = 0; i < matrix1.GetLength(0); i++)
   {
-    for (int j = 0; j < array.GetLength(1); j++)
+    for (int j = 0; j < matrix1.GetLength(1); j++)
     {
-      for (int k = 0; k < array.GetLength(1) - 1; k++)
+      for (int k = 0; k < matrix1.GetLength(1) - 1; k++)
       {
-        if (array[i, k] < array[i, k + 1])
+        if (matrix1[i, k] < matrix1[i, k + 1])
         {
-          int temp = array[i, k + 1];
-          array[i, k + 1] = array[i, k];
-          array[i, k] = temp;
+          int temp = matrix1[i, k + 1];
+          matrix1[i, k + 1] = matrix1[i, k];
+          matrix1[i, k] = temp;
         }
       }
     }
   }
-  return array;
+  return matrix1;
 }
 
 void PrintSortMatrixLines(int[,] matrix)

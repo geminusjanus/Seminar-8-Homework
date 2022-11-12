@@ -31,13 +31,13 @@ void PrintMatrix(int[,,] matrix)
         {
             for (int z = 0; z < matrix.GetLength(2); z++)
             {
-                if (i < matrix.GetLength(1) - 1) Console.Write($"{matrix[i, j, z],3}, ");
-                else Console.Write($"{matrix[i, j, z],3}, ");
+                if (i < matrix.GetLength(1) - 1) Console.Write($"{matrix[i, j, z],3} ({i},{j}, {z}), ");
+                else Console.Write($"{matrix[i, j, z],3} ({i},{j}, {z}), ");
             }
         }
         Console.WriteLine("|");
     }
 }
 
-int[,,] array3D = CreateMatrixRndInt(2, 2, 2, 1, 10);
+int[,,] array3D = CreateMatrixRndInt(2, 2, 2, 10, 99);
 PrintMatrix(array3D);
