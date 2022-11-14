@@ -41,7 +41,7 @@ void PrintMatrix(int[,] matrix)
 int[,] array2D = CreateMatrixRndInt(4, 4, 1, 10);
 PrintMatrix(array2D);
 
-int [,] OtherMatrixRows(int[,] matrix1)
+int [,] SortMatrixRows(int[,] matrix1)
 {
   for (int i = 0; i < matrix1.GetLength(0); i++)
   {
@@ -61,7 +61,7 @@ int [,] OtherMatrixRows(int[,] matrix1)
   return matrix1;
 }
 
-void PrintSortMatrixLines(int[,] matrix)
+void PrintSortMatrixRows(int[,] matrix)
 {
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
@@ -76,5 +76,5 @@ void PrintSortMatrixLines(int[,] matrix)
 }
 
 Console.WriteLine();
-int [,] newArray = OtherMatrixRows(array2D);
-PrintSortMatrixLines(newArray);
+int [,] newArray = SortMatrixRows(array2D);
+PrintSortMatrixRows(newArray);
